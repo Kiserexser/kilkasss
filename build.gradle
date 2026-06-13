@@ -1,4 +1,3 @@
-gradle
 plugins {
     id 'fabric-loom' version '1.7.4'
     id 'maven-publish'
@@ -9,6 +8,12 @@ group = 'com.example.speed'
 
 base {
     archivesName = "speed-mod"
+}
+
+loom {
+    mixin {
+        defaultRefmapName.set("speed-mod.refmap.json")
+    }
 }
 
 repositories {
@@ -23,6 +28,7 @@ dependencies {
     minecraft "com.mojang:minecraft:1.21.4"
     mappings "net.fabricmc:yarn:1.21.4+build.1:v2"
     modImplementation "net.fabricmc:fabric-loader:0.15.11"
+    annotationProcessor 'net.fabricmc:sponge-mixin:0.12.5+mixin.0.8.5'
 }
 
 processResources {
